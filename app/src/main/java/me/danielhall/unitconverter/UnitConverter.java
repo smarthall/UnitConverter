@@ -56,14 +56,14 @@ public class UnitConverter extends ActionBarActivity
     }
 
     public void onSectionAttached(int number) {
-        switch (number) {
+/*        switch (number) {
             case 1:
                 mTitle = getString(R.string.title_distance);
                 break;
             case 2:
                 mTitle = getString(R.string.title_data);
                 break;
-        }
+        }*/
     }
 
     public void restoreActionBar() {
