@@ -27,7 +27,7 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="120dp"
                 android:id="@+id/list_units_to"
                 android:layout_gravity="center_horizontal"
                 android:choiceMode="singleChoice" />
@@ -38,11 +38,12 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/convert_to"
                 android:id="@+id/textView"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:inputType="none" />
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="120dp"
                 android:id="@+id/list_units_from"
                 android:layout_gravity="center_horizontal"
                 android:choiceMode="singleChoice" />
