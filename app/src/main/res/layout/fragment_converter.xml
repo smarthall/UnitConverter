@@ -27,8 +27,8 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView"
+                android:layout_height="200dp"
+                android:id="@+id/list_units_to"
                 android:layout_gravity="center_horizontal" />
 
             <TextView
@@ -41,9 +41,10 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView2"
+                android:layout_height="200dp"
+                android:id="@+id/list_units_from"
                 android:layout_gravity="center_horizontal" />
+
         </LinearLayout>
     </ScrollView>
 

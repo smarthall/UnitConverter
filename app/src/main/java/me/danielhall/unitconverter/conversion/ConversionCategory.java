@@ -16,6 +16,10 @@ public class ConversionCategory {
         this.units = units;
     }
 
+    public List<ConversionUnit> getUnits() {
+        return units;
+    }
+
     public ConversionCategory(String categoryName, ConversionUnit ... units) {
         this.categoryName = categoryName;
         this.units = Arrays.asList(units);
