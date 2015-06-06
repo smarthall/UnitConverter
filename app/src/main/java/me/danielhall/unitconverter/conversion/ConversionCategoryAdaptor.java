@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by daniel on 6/06/15.
- */
+import me.danielhall.unitconverter.R;
+
 public class ConversionCategoryAdaptor extends BaseAdapter {
     private List<ConversionCategory> categories;
     private Context context;
@@ -39,9 +38,10 @@ public class ConversionCategoryAdaptor extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //LayoutInflater inflator = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //View newView = inflator.inflate(resource, parent, false);
-        TextView txtView = new TextView(context);
+        LayoutInflater inflator = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View newView = inflator.inflate(android.R.layout.simple_list_item_1, parent, false);
+
+        TextView txtView = (TextView) newView;
         txtView.setText(categories.get(position).getCategoryName());
 
         return txtView;

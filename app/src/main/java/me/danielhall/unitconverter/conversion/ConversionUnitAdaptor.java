@@ -1,6 +1,7 @@
 package me.danielhall.unitconverter.conversion;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -34,9 +35,10 @@ public class ConversionUnitAdaptor extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        //LayoutInflater inflator = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //View newView = inflator.inflate(resource, parent, false);
-        TextView txtView = new TextView(context);
+        LayoutInflater inflator = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View newView = inflator.inflate(android.R.layout.simple_list_item_single_choice, parent, false);
+
+        TextView txtView = (TextView) newView;
         txtView.setText(units.get(position).getUnitName());
 
         return txtView;

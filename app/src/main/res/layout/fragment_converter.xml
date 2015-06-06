@@ -22,14 +22,15 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/textInput"
                 android:layout_gravity="center_horizontal" />
 
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:id="@+id/list_units_to"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:choiceMode="singleChoice" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -43,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:id="@+id/list_units_from"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:choiceMode="singleChoice" />
 
         </LinearLayout>
     </ScrollView>

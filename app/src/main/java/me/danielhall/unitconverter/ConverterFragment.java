@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -65,6 +66,13 @@ public class ConverterFragment extends Fragment {
         ListView unitsTo = (ListView) me.findViewById(R.id.list_units_to);
 
         unitsFrom.setAdapter(toUnitAdaptor);
+        unitsFrom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectItem(view, position);
+            }
+        });
+
         unitsTo.setAdapter(fromUnitAdaptor);
 
         // Inflate the layout for this fragment
@@ -79,5 +87,8 @@ public class ConverterFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    private void selectItem(View view, int position) {
     }
 }
