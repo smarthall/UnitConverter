@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ConversionCategory {
+    public String getCategoryName() {
+        return categoryName;
+    }
+
     private String categoryName;
     private List<ConversionUnit> units;
 

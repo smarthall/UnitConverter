@@ -22,6 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import me.danielhall.unitconverter.conversion.ConversionCategory;
+import me.danielhall.unitconverter.conversion.ConversionCategoryAdaptor;
+
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
@@ -97,14 +100,7 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_distance),
-                        getString(R.string.title_data),
-                }));
+        mDrawerListView.setAdapter(new ConversionCategoryAdaptor(getActionBar().getThemedContext()));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -195,8 +191,9 @@ public class NavigationDrawerFragment extends Fragment {
         if (mDrawerLayout != null) {
             mDrawerLayout.closeDrawer(mFragmentContainerView);
         }
-        if (mCallbacks != null) {
-            mCallbacks.onNavigationDrawerItemSelected(position);
+        if (mCallbacks != null && mDrawerListView != null) {
+            ConversionCategory item = (ConversionCategory) mDrawerListView.getItemAtPosition(position);
+            mCallbacks.onNavigationDrawerItemSelected(item);
         }
     }
 
@@ -276,6 +273,6 @@ public class NavigationDrawerFragment extends Fragment {
         /**
          * Called when an item in the navigation drawer is selected.
          */
-        void onNavigationDrawerItemSelected(int position);
+        void onNavigationDrawerItemSelected(ConversionCategory category);
     }
 }

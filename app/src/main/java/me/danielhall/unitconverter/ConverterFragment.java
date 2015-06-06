@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import me.danielhall.unitconverter.conversion.ConversionCategory;
+import me.danielhall.unitconverter.conversion.ConversionData;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,21 +18,21 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ConverterFragment extends Fragment {
-    private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String ARG_CATEGORY_NAME = "category_name";
 
-    private int section_number;
+    private ConversionCategory category;
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param section_number The section to display.
+     * @param category The unit conversion category to use.
      * @return A new instance of fragment ConverterFragment.
      */
-    public static ConverterFragment newInstance(int section_number) {
+    public static ConverterFragment newInstance(ConversionCategory category) {
         ConverterFragment fragment = new ConverterFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, section_number);
+        args.putString(ARG_CATEGORY_NAME, category.getCategoryName());
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,7 +45,7 @@ public class ConverterFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            section_number = getArguments().getInt(ARG_SECTION_NUMBER);
+            category = ConversionData.getCategoryByName(getArguments().getString(ARG_CATEGORY_NAME));
         }
     }
 

@@ -17,6 +17,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import me.danielhall.unitconverter.conversion.ConversionCategory;
+
 
 public class UnitConverter extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -47,23 +49,12 @@ public class UnitConverter extends ActionBarActivity
     }
 
     @Override
-    public void onNavigationDrawerItemSelected(int position) {
+    public void onNavigationDrawerItemSelected(ConversionCategory category) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, ConverterFragment.newInstance(position + 1))
+                .replace(R.id.container, ConverterFragment.newInstance(category))
                 .commit();
-    }
-
-    public void onSectionAttached(int number) {
-/*        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_distance);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_data);
-                break;
-        }*/
     }
 
     public void restoreActionBar() {
